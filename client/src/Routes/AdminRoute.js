@@ -8,6 +8,7 @@ import Orders from '../Admin/components/Orders/OrdersTable';
 import Products from '../Admin/components/Products/ProductsTable';
 import OrdersTable from '../Admin/components/Orders/OrdersTable';
 import CreateCourse from '../Admin/CreateCourse/CreateCourse';
+import UpdateCourse from '../Admin/components/UpdateCourse/UpdateCourse';
 
 function AdminRoute() {
 
@@ -25,7 +26,7 @@ function AdminRoute() {
               
         <Route path="/customers" element={<OrdersTable />} />
 
-        
+        <Route path="/updateCourse" element={<UpdateCourse />} />
 
         <Route path="/createCourse" element={<CreateCourse />} />
 

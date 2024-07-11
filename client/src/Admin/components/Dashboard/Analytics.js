@@ -4,7 +4,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const cardClasses = 'bg-white p-4 rounded-lg shadow-lg flex-1 lg:w-[300px]';
+const cardClasses = 'bg-white p-4 rounded-lg shadow-lg flex-1 lg:w-[218px]';
 const iconClasses = 'rounded-full p-2';
 const textClasses = 'text-muted-foreground';
 const valueClasses = 'text-2xl font-bold text-card-foreground';
@@ -64,7 +64,7 @@ const Analytics = () => {
   };
 
   return (
-    <div className=" flex lg:space-x-4 space-y-4 p-4 bg-transparent lg:flex-row flex-col ">
+    <div className=" flex lg:space-x-4 space-y-3 p-3 bg-transparent lg:flex-row flex-col ">
       <Card
         iconUrl="https://img.icons8.com/?size=100&id=X4XkP0y69kF1&format=png&color=000000"
         title="Course Overview"

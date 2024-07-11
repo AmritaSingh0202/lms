@@ -27,49 +27,12 @@ const Analytics2 = () => {
     percentage: 1.56,
   });
 
-  useEffect(() => {
-    // Fetch data from the backend in future
-    // For now, we use dummy data
-    setTopCountries([
-      {
-        flagSrc: "https://openui.fly.dev/openui/24x24.svg?text=IN",
-        countryName: "India",
-        salesAmount: "1200",
-        arrowSrc: "https://openui.fly.dev/openui/24x24.svg?text=📈",
-      },
-      {
-        flagSrc: "https://openui.fly.dev/openui/24x24.svg?text=PK",
-        countryName: "Pakistan",
-        salesAmount: "500",
-        arrowSrc: "https://openui.fly.dev/openui/24x24.svg?text=📈",
-      },
-    ]);
-  }, []);
+  
 
   return (
     <div className="flex flex-col lg:flex-row lg:space-x-4 p-4">
-      <div className={cardClasses}>
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold text-card-foreground">
-            Top Countries By Sales
-          </h2>
-          <button className={buttonClasses}>
-            <img
-              aria-hidden="true"
-              alt="view-all"
-              src="https://openui.fly.dev/openui/24x24.svg?text=👁"
-            />
-          </button>
-        </div>
-        <div className="mb-4">
-          <h3 className="text-2xl font-bold text-card-foreground">
-            ${salesData.revenue}
-          </h3>
-          <p className="text-green-500 text-sm">
-            {salesData.percentage}%{" "}
-            <span className="text-muted-foreground">since last weekend</span>
-          </p>
-        </div>
+     
+
         <ul>
           {topCountries.map((country, index) => (
             <CountryCard
@@ -82,7 +45,7 @@ const Analytics2 = () => {
           ))}
         </ul>
       </div>
-    </div>
+    
   );
 };
 

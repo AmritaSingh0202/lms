@@ -26,7 +26,7 @@ const menu = [
 
   { name: "Enrollment", path: "/admin/orders", icon: <FaUser /> },
   
-  { name: "Manage Profile", path: "/admin/settings", icon: <FaCog /> },
+  { name: "UpdateCourse", path: "/admin/updateCourse", icon: <FaCog /> },
 
 ];
 
