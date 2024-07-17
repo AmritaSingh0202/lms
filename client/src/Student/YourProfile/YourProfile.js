@@ -9,13 +9,15 @@ const YourProfile = () => {
   const loginUser = "student";
 
   const [profile, setProfile] = useState({
-    studentFullName: "Anuruddh Singh",
-    studentEmail: "anuruddh7234@gmail.com",
-    studentMobileNo: "8795734013",
-    studentGender: "Male",
-    studentAge: "20",
-    studentAddress: "Lucknow, Uttar Pradesh",
-    studentProfilePicture: "path-to-profile-picture.jpg",
+    studentFullName: " ",
+    studentUserName:"",
+    studentEmail: "",
+   // studentMobileNo: "",
+    studentGender: "",
+    studentAge: "",
+    //studentAddress: "",
+    studentProfilePicture: "",
+    
 
   });
 
@@ -29,41 +31,50 @@ const YourProfile = () => {
   };
 
   const handleSubmit = async () => {
-
+       
+    //Body part;
     const body = {
       studentFullName: profile.studentFullName,
+      studentUserName: profile.studentUserName,
       studentEmail: profile.studentEmail,
-      studentMobileNo: profile.studentMobileNo,
+     // studentMobileNo: profile.studentMobileNo,
       studentGender: profile.studentGender,
       studentAge: profile.studentAge,
-      studentAddress: profile.studentAddress,
+      //studentAddress: profile.studentAddress,
       studentProfilePicture: profile.studentProfilePicture,
-    }
-
+      
+    };
+    //config part;
     const config = {
 
       headers: {
-        "content": "multipart/form-data",
+        "Content-Type": "application/json",
   
       },
 
-      withCredentials: true,   /// this is for reading the cookie from the server side
+      withCredentials: true,   /// this is for reading the cookies from the server side
     }
-
-    const response = await axios.post(`api/student/profile/${loginUser}`, body, config);
+    //put request;
+    try{
+    const response = await axios.put(`/api/student/update`, body, config);
 
     console.log("response =>", response);
+  }catch(error){
+    console.log(error);
+  }
+};
+     
 
-
-  };
+     //Fetching data from api;
 
   const fetchProfile = async () => {
     try {
-      const response = await axios.get(`api/student/profile/${loginUser}`);
-      console.log("get all courses response=>", response);
-      console.log("response.data =>", response.data);
-      console.log("response.data.data =>", response.data.data);
-      setProfile(response.data.data);
+      const response = await axios.get(`/api/student/getProfile`,{withCrendentials:true});
+
+      const data=response.data;
+     console.log(data);
+     setProfile(data.data)
+
     } catch (error) {
       console.log(error);
     }
@@ -84,10 +95,14 @@ const YourProfile = () => {
     }
   };
 
+     //For mounting data in starting
   useEffect(() => {
+
     fetchProfile();
 
   }, []);
+
+
 
   return (
     <div className="maincontainer">
@@ -98,7 +113,7 @@ const YourProfile = () => {
             <div className="profile-header">
               <div className="avatar-container">
                 <Avatar
-                  src={profile.profilePicture}
+                  src={profile.studentProfilePicture}
                   alt="Profile"
                   className="avatar"
                   onClick={() => document.getElementById("avatarInput").click()}
@@ -115,7 +130,7 @@ const YourProfile = () => {
               <h2>My Profile</h2>
             </div>
 
-    
+
             <form className="profile-form" onSubmit={handleSubmit}>
               <div className="form-row">
                 <div className="form-group">
@@ -127,34 +142,44 @@ const YourProfile = () => {
                     onChange={handleChange}
                   />
                 </div>
+                <div className="form-row">
+                <div className="form-group">
+                  <label>Username *</label>
+                  <input
+                  type="text"
+                  name="studentUserName"
+                  value={profile.studentUserName}
+                  onChange={handleChange}/>
+                </div>
+              </div>
 
                 <div className="form-group">
                   <label>Email *</label>
                   <input
                     type="email"
                     name="email"
-                    value={profile.email}
+                    value={profile.studentEmail}
                     onChange={handleChange}
                   />
                 </div>
               </div>
 
               <div className="form-row">
-                <div className="form-group">
+                {/*<div className="form-group">
                   <label>Mobile No *</label>
                   <input
                     type="tel"
                     name="mobileNo"
-                    value={profile.mobileNo}
+                    value={profile.studentMobileNo}
                     disabled
                   />
-                </div>
+                </div>*/}
 
                 <div className="form-group">
                   <label>Gender</label>
                   <select
                     name="gender"
-                    value={profile.gender}
+                    value={profile.studentGender}
                     onChange={handleChange}
                   >
                     <option value="Male">Male</option>
@@ -170,21 +195,22 @@ const YourProfile = () => {
                   <input
                     type="number"
                     name="age"
-                    value={profile.age}
+                    value={profile.studentAge}
                     onChange={handleChange}
                   />
                 </div>
-                <div className="form-group">
+                {/*<div className="form-group">
                   <label>Address</label>
                   <input
                     type="text"
                     name="address"
-                    value={profile.address}
+                    value={profile.studentAddress}
                     onChange={handleChange}
                   />
-                </div>
+                </div>*/}
               </div>
 
+             
               <button type="submit" className="save-changes">
                 Save changes
               </button>
