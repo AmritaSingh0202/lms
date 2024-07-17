@@ -3,7 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   user: null,
   isAuthenticated: false,
-  type:null
+  type:null,
+  isAdmin:false,
+  isTeacher:false,
+  isStudent:false
 };
 
 const userSlice = createSlice({
@@ -25,13 +28,21 @@ const userSlice = createSlice({
       }
     },
 
-    // setLogin(state, action) {
-    //   state.login = action.payload;
-    // },
-
     logout(state, action) {
       state.user = null;
       state.isAuthenticated = false;
+    },
+
+    setAdmin(state, action) {
+      state.isAdmin = action.payload;
+    },
+
+    setTeacher(state, action) {
+      state.isTeacher = action.payload;
+    },
+
+    setStudent(state, action) {
+      state.isStudent = action.payload;
     },
   },
 });

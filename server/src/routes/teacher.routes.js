@@ -3,7 +3,6 @@ import { upload } from '../middlewares/multer.middleware.js';
 
 import { getTeacherCourses, getTeacherProfile, teacherDelete, teacherUpdate } from '../controller/version1/teacher.controller.js';
 
-
 import isTeacherLogin from '../middlewares/teacher.auth.js';
 
 const teacherRouter = express.Router();
