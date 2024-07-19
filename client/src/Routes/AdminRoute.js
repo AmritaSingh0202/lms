@@ -4,6 +4,10 @@ import Admin from '../Admin/Admin';
 
 import AdminDashboard from '../Admin/components/Dashboard/Dashboard';
 import ViewLecture from '../Common/ViewLecture/ViewLecture';
+//import Customer from '..Admin/components/Customer/TeacherList';
+import OrdersTable from '../Admin/components/Orders/OrdersTable';
+import Orders from '../Admin/components/Orders/OrdersTable';
+import CourseTable from '../Admin/components/CourseTable/CourseTable';
 
 import CreateCourse from '../Admin/CreateCourse/CreateCourse';
 import UpdateCourse from '../Admin/UpdateCourse/UpdateCourse';
@@ -25,9 +29,9 @@ function AdminRoute() {
 
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/admin/customers" element={<Customer />} />
+        {/*<Route path="/admin/customers" element={<Customer />} />*/}
         <Route path="/admin/orders" element={<Orders />} />
-        <Route path="/admin/courses" element={<Products />} />
+        {/*<Route path="/admin/courses" element={<Products />} />*/}
         <Route path="/admin/updateCourses" element={<UpdateCourse />} />
 
         <Route path="/admin/courses" element={<CourseTable />} />
