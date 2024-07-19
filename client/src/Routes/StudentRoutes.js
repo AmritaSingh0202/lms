@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-// import YourProfile from '../Student/YourProfile/YourProfile';
 import MyCourses from '../Student/MyCourses/MyCourses';
 import ViewLecture from '../Common/ViewLecture/ViewLecture';
 import YourProfile from '../Student/YourProfile/YourProfile';

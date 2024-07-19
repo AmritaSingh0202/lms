@@ -6,12 +6,16 @@ import Navbar from "../../components/Navbar/Navbar";
 
 const YourProfile = () => {
   const [profile, setProfile] = useState({
-    studentFullName: "",
-    studentUserName: "",
+    studentFullName: " ",
+    studentUserName:"",
     studentEmail: "",
+   // studentMobileNo: "",
     studentGender: "",
     studentAge: "",
+    //studentAddress: "",
     studentProfilePicture: "",
+    
+
   });
 
   const handleChange = (e) => {
@@ -22,44 +26,56 @@ const YourProfile = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
+       
+    //Body part;
     const body = {
       studentFullName: profile.studentFullName,
       studentUserName: profile.studentUserName,
       studentEmail: profile.studentEmail,
+     // studentMobileNo: profile.studentMobileNo,
       studentGender: profile.studentGender,
       studentAge: profile.studentAge,
+      //studentAddress: profile.studentAddress,
       studentProfilePicture: profile.studentProfilePicture,
+      
     };
-
+    //config part;
     const config = {
       headers: {
         "Content-Type": "application/json",
+  
       },
-      withCredentials: true,
-    };
-
-    try {
-      const response = await axios.put(`/api/student/update`, body, config);
-      console.log("response =>", response);
-    } catch (error) {
-      console.log(error);
+    
+      withCredentials: true,   /// this is for reading the cookies from the server side
     }
-  };
+    //put request;
+    try{
+    const response = await axios.put(`/api/student/update`, body, config);
+
+    console.log("response =>", response);
+  }catch(error){
+    console.log(error);
+  }
+};
+     
+
+     //Fetching data from api;
 
   const fetchProfile = async () => {
     try {
-      const response = await axios.get(`/api/student/getProfile`, {
-        withCredentials: true,
-      });
-      const data = response.data;
-      setProfile(data.data);
+      const response = await axios.get(`/api/student/getProfile`,{withCrendentials:true});
+
+      const data=response.data;
+     console.log(data);
+     setProfile(data.data)
+
     } catch (error) {
       console.log(error);
     }
   };
 
+ 
   const handleAvatarChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -74,9 +90,13 @@ const YourProfile = () => {
     }
   };
 
+     //For mounting data in starting
   useEffect(() => {
+
     fetchProfile();
   }, []);
+
+
 
   return (
     <div className="maincontainer">
@@ -102,6 +122,8 @@ const YourProfile = () => {
               </div>
               <h2>My Profile</h2>
             </div>
+
+
             <form className="profile-form" onSubmit={handleSubmit}>
               <div className="form-row">
                 <div className="form-group">
@@ -113,30 +135,42 @@ const YourProfile = () => {
                     onChange={handleChange}
                   />
                 </div>
+                <div className="form-row">
                 <div className="form-group">
                   <label>Username *</label>
                   <input
-                    type="text"
-                    name="studentUserName"
-                    value={profile.studentUserName}
-                    onChange={handleChange}
-                  />
+                  type="text"
+                  name="studentUserName"
+                  value={profile.studentUserName}
+                  onChange={handleChange}/>
                 </div>
+              </div>
+
                 <div className="form-group">
                   <label>Email *</label>
                   <input
                     type="email"
-                    name="studentEmail"
+                    name="email"
                     value={profile.studentEmail}
                     onChange={handleChange}
                   />
                 </div>
               </div>
               <div className="form-row">
+                {/*<div className="form-group">
+                  <label>Mobile No *</label>
+                  <input
+                    type="tel"
+                    name="mobileNo"
+                    value={profile.studentMobileNo}
+                    disabled
+                  />
+                </div>*/}
+
                 <div className="form-group">
                   <label>Gender</label>
                   <select
-                    name="studentGender"
+                    name="gender"
                     value={profile.studentGender}
                     onChange={handleChange}
                   >
@@ -149,12 +183,23 @@ const YourProfile = () => {
                   <label>Age</label>
                   <input
                     type="number"
-                    name="studentAge"
+                    name="age"
                     value={profile.studentAge}
                     onChange={handleChange}
                   />
                 </div>
+                {/*<div className="form-group">
+                  <label>Address</label>
+                  <input
+                    type="text"
+                    name="address"
+                    value={profile.studentAddress}
+                    onChange={handleChange}
+                  />
+                </div>*/}
               </div>
+
+             
               <button type="submit" className="save-changes">
                 Save changes
               </button>

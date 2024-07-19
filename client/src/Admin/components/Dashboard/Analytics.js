@@ -4,11 +4,11 @@
 
 // ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-// const cardClasses = 'bg-white p-4 rounded-lg shadow-lg flex-1 lg:w-[300px]';
-// const iconClasses = 'rounded-full p-2';
-// const textClasses = 'text-muted-foreground';
-// const valueClasses = 'text-2xl font-bold text-card-foreground';
-// const changeClasses = 'flex items-center space-x-1';
+const cardClasses = 'bg-white p-4 rounded-lg shadow-lg flex-1 lg:w-[218px]';
+const iconClasses = 'rounded-full p-2';
+const textClasses = 'text-muted-foreground';
+const valueClasses = 'text-2xl font-bold text-card-foreground';
+const changeClasses = 'flex items-center space-x-1';
 
 // const Analytics = () => {
 //   const salesData = {
@@ -63,43 +63,43 @@
 //     ],
 //   };
 
-//   return (
-//     <div className=" flex lg:space-x-4 space-y-4 p-4 bg-transparent lg:flex-row flex-col ">
-//       <Card
-//         iconUrl="https://img.icons8.com/?size=100&id=X4XkP0y69kF1&format=png&color=000000"
-//         title="Course Overview"
-//         value="12,000"
-//         change="2.00%"
-//         graphData={salesData}
-//         iconBgColor="bg-gray-300"
-//       />
-//       <Card
-//         iconUrl="https://img.icons8.com/?size=100&id=FxcjMqAjmqCG&format=png&color=000000"
-//         title="Admin Revenue"
-//         value="$30.000"
-//         change="10.56%"
-//         graphData={incomeData}
-//         iconBgColor="bg-purple-300"
-//       />
-//       <Card
-//         iconUrl="https://img.icons8.com/?size=100&id=36950&format=png&color=000000"
-//         title="Requested Withdrawal"
-//         value="200"
-//         change="1.00%"
-//         graphData={ordersData}
-//         iconBgColor="bg-blue-500"
-//       />
-//       <Card
-//         iconUrl="https://img.icons8.com/?size=100&id=wedvG5aPAzPV&format=png&color=000000"
-//         title="Students Visited"
-//         value="10,000"
-//         change="6.56%"
-//         graphData={visitorsData}
-//         iconBgColor="bg-red-500"
-//       />
-//     </div>
-//   );
-// };
+  return (
+    <div className=" flex lg:space-x-4 space-y-3 p-3 bg-transparent lg:flex-row flex-col ">
+      <Card
+        iconUrl="https://img.icons8.com/?size=100&id=X4XkP0y69kF1&format=png&color=000000"
+        title="Course Overview"
+        value="12,000"
+        change="2.00%"
+        graphData={salesData}
+        iconBgColor="bg-gray-300"
+      />
+      <Card
+        iconUrl="https://img.icons8.com/?size=100&id=FxcjMqAjmqCG&format=png&color=000000"
+        title="Admin Revenue"
+        value="$30.000"
+        change="10.56%"
+        graphData={incomeData}
+        iconBgColor="bg-purple-300"
+      />
+      <Card
+        iconUrl="https://img.icons8.com/?size=100&id=36950&format=png&color=000000"
+        title="Requested Withdrawal"
+        value="200"
+        change="1.00%"
+        graphData={ordersData}
+        iconBgColor="bg-blue-500"
+      />
+      <Card
+        iconUrl="https://img.icons8.com/?size=100&id=wedvG5aPAzPV&format=png&color=000000"
+        title="Students Visited"
+        value="10,000"
+        change="6.56%"
+        graphData={visitorsData}
+        iconBgColor="bg-red-500"
+      />
+    </div>
+  );
+
 
 // const Card = ({ iconUrl, title, value, change, graphData, iconBgColor }) => {
 //   return (
