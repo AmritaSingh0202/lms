@@ -6,9 +6,6 @@ import AdminDashboard from '../Admin/components/Dashboard/Dashboard';
 import ViewLecture from '../Common/ViewLecture/ViewLecture';
 
 import CreateCourse from '../Admin/CreateCourse/CreateCourse';
-import TeacherList from '../Admin/components/Customer/TeacherList';
-import CourseTable from '../Admin/components/CourseTable/CourseTable';
-import { FaTachometerAlt, FaBoxOpen, FaTags, FaUser, FaTimes } from 'react-icons/fa';
 import UpdateCourse from '../Admin/UpdateCourse/UpdateCourse';
 
 function AdminRoute() {
@@ -28,12 +25,19 @@ function AdminRoute() {
 
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/admin/teachers" element={<TeacherList />} />
-   
+        <Route path="/admin/customers" element={<Customer />} />
+        <Route path="/admin/orders" element={<Orders />} />
+        <Route path="/admin/courses" element={<Products />} />
+        <Route path="/admin/updateCourses" element={<UpdateCourse />} />
 
         <Route path="/admin/courses" element={<CourseTable />} />
         <Route path="/admin/viewLectures" element={<ViewLecture />} />
 
+          
+              
+        <Route path="/customers" element={<OrdersTable />} />
+
+        <Route path="/updateCourse" element={<UpdateCourse />} />
 
         <Route path="/createCourse" element={<CreateCourse />} />
         <Route path="/admin/updateCourse" element={<UpdateCourse />} />

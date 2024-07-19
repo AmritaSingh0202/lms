@@ -20,7 +20,11 @@ const menu = [
   { name: "update Course", path: "/admin/updateCourse", icon: <FaUser /> },
   { name: "Teacher List", path: "/admin/teachers", icon: <FaUser /> },
   
+<<<<<<< HEAD
 
+=======
+  { name: "UpdateCourse", path: "/updateCourse", icon: <FaCog /> },
+>>>>>>> c868155b17e2caedec627e97715bba6c824824ea
 
 ];
 
